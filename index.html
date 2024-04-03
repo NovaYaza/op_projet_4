@@ -56,7 +56,8 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form
+            <div id="form_submit_message">
+            <form novalidate
               name="reserve"
               action="index.html"
               method="get"
@@ -70,7 +71,6 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
                 /><br>
               </div>
               <div
@@ -206,6 +206,8 @@
                 value="C'est parti"
               />
             </form>
+          </div>
+          <div class="hidden visible"></div>
           </div>
         </div>
       </div>
