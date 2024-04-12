@@ -46,32 +46,33 @@ function clearErrorMessage(element) {
 
 //Cacher contenu du formulaire si tout est bon lorsque l'utilisateur submit
 function hideContentForm() {
-  // Masquer le formulaire
+  //Masquer le formulaire
   document.getElementById('form_submit_message').style.display = 'none';
 
-  // Afficher le message de remerciement
+  //Affichage du message de remerciement
   const thanksMessageDiv = document.getElementById('message_successfully');
   thanksMessageDiv.style.display = 'block';
-  thanksMessageDiv.textContent = "Merci ! Votre réservation a été reçue."; 
+  thanksMessageDiv.textContent = "Merci ! Votre réservation a été reçue.";
+  thanksMessageDiv.style.marginTop = '300px'; 
 
-  // Créer un bouton
+  //Création du bouton
   const btnCloseSucces = document.createElement('button');
 
-  // Définir l'identifiant du bouton
+  //Ajout d'un id
   btnCloseSucces.id = 'btn_successfully';
 
-  // Définir le texte du bouton
+  //Texte du bouton
   btnCloseSucces.textContent = 'Fermer';
 
-  // Ajouter une marge en hauteur de 150px au bouton
+  //Ajout d'une marge en hauteur de 300px au bouton
   btnCloseSucces.style.marginTop = '300px';
 
-  // Ajouter un gestionnaire d'événements au bouton
+  //Ajout d'un évènement pour fermer ma modale
   btnCloseSucces.addEventListener('click', function() {
     closeModal()
   });
 
-  // Ajouter le bouton à un élément existant dans le DOM
+  //Ajout du bouton à un élément parent existant dans le DOM
   const container = document.getElementById('message_successfully'); // Remplacez 'container' par l'ID de l'élément parent où vous voulez ajouter le bouton
   container.appendChild(btnCloseSucces);
   }
@@ -96,6 +97,7 @@ function validate(event) {
     eltfirstName.parentElement.setAttribute('data-error-visible', 'true');
     eltfirstName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
     verifications = false;
+  //Vérification si la saisie du prénom est correct
   } else if (!new RegExp('^[a-zA-ZÀ-ÿ- ]{2,}$').test(testEspacefirstName)) {
     eltfirstName.parentElement.setAttribute('data-error-visible', 'true');
     eltfirstName.parentElement.setAttribute('data-error', 'Veuillez entrer un prénom valide (pas de caractères spéciaux).');
@@ -109,6 +111,7 @@ function validate(event) {
     eltlastName.parentElement.setAttribute('data-error-visible', 'true');
     eltlastName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
     verifications = false;
+  //Vérification si la saisie du nom est correct
   } else if (!new RegExp('^[a-zA-ZÀ-ÿ- ]{2,}$').test(testEspacelastName)) {
     eltlastName.parentElement.setAttribute('data-error-visible', 'true');
     eltlastName.parentElement.setAttribute('data-error', 'Veuillez entrer un nom valide (pas de caractères spéciaux).');
@@ -117,7 +120,7 @@ function validate(event) {
     clearErrorMessage(eltlastName);
   }
 
-  //Vérification si l'email est rentré
+  //Vérification si l'email est rentré et correct
   if (!new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$').test(testEspaceEmail)) {
     eltEmail.parentElement.setAttribute('data-error-visible', 'true');
     eltEmail.parentElement.setAttribute('data-error', 'Veuillez entrer un email valide.')
@@ -126,7 +129,7 @@ function validate(event) {
     clearErrorMessage(eltEmail)
   }
 
-  //date de naissance
+  //Date de naissance
   const eltBirthdate = document.getElementById('birthdate');
   const birthdateValue = eltBirthdate.value;
   
@@ -173,7 +176,7 @@ function validate(event) {
     clearErrorMessage(eltTournament)
   }
 
-  //Vérification si un des boutons radio est rentré
+  //Vérification si un des boutons radio est coché
   const radioLocations = document.querySelectorAll('input[type=radio][name="location"]');
   let isChecked = false;
 
@@ -216,5 +219,5 @@ function validate(event) {
 }
 }
 
-// Ferme la modal au clique en appelant ma fonction closeModal
+//Ferme la modal au clique en appelant ma fonction closeModal
 document.querySelector('.close').addEventListener('click', closeModal);
