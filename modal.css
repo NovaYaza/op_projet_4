@@ -188,6 +188,13 @@ main {
   margin: 15px auto;
 }
 
+/* Modification modale message de succès */
+#message_successfully {
+  padding: 150px 12% 0px;
+  margin: 150px auto 0px;
+  text-align: center;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -515,6 +522,9 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+  #message_successfully {
+    padding: 150px 6% 0px;
   }
 }
 

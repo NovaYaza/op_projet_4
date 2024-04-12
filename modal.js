@@ -63,6 +63,9 @@ function hideContentForm() {
   // Définir le texte du bouton
   btnCloseSucces.textContent = 'Fermer';
 
+  // Ajouter une marge en hauteur de 150px au bouton
+  btnCloseSucces.style.marginTop = '300px';
+
   // Ajouter un gestionnaire d'événements au bouton
   btnCloseSucces.addEventListener('click', function() {
     closeModal()
