@@ -98,7 +98,7 @@ function validate(event) {
     eltfirstName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
     verifications = false;
   //Vérification si la saisie du prénom est correct
-  } else if (!new RegExp('^[a-zA-ZÀ-ÿ- ]{2,}$').test(testEspacefirstName)) {
+  } else if (!testEspacefirstName.match(/^[a-zA-ZÀ-ÿ- ]{2,}$/)) {
     eltfirstName.parentElement.setAttribute('data-error-visible', 'true');
     eltfirstName.parentElement.setAttribute('data-error', 'Veuillez entrer un prénom valide (pas de caractères spéciaux).');
     verifications = false;
@@ -107,12 +107,12 @@ function validate(event) {
   }
 
   //Vérification si le nom est rentré
-  if (testEspacelastName === "" || testEspacelastName.length < 2) {
+  if (testEspacelastName === "" || testEspacelastName.length < 2) {  
     eltlastName.parentElement.setAttribute('data-error-visible', 'true');
     eltlastName.parentElement.setAttribute('data-error', 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
     verifications = false;
   //Vérification si la saisie du nom est correct
-  } else if (!new RegExp('^[a-zA-ZÀ-ÿ- ]{2,}$').test(testEspacelastName)) {
+  } else if (!testEspacelastName.match(/^[a-zA-ZÀ-ÿ- ]{2,}$/)) {
     eltlastName.parentElement.setAttribute('data-error-visible', 'true');
     eltlastName.parentElement.setAttribute('data-error', 'Veuillez entrer un nom valide (pas de caractères spéciaux).');
     verifications = false;
@@ -121,7 +121,7 @@ function validate(event) {
   }
 
   //Vérification si l'email est rentré et correct
-  if (!new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$').test(testEspaceEmail)) {
+  if (!testEspaceEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
     eltEmail.parentElement.setAttribute('data-error-visible', 'true');
     eltEmail.parentElement.setAttribute('data-error', 'Veuillez entrer un email valide.')
     verifications = false;
