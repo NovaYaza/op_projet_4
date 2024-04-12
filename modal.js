@@ -53,7 +53,25 @@ function hideContentForm() {
   const thanksMessageDiv = document.getElementById('message_successfully');
   thanksMessageDiv.style.display = 'block';
   thanksMessageDiv.textContent = "Merci ! Votre réservation a été reçue."; 
-}
+
+  // Créer un bouton
+  const btnCloseSucces = document.createElement('button');
+
+  // Définir l'identifiant du bouton
+  btnCloseSucces.id = 'btn_successfully';
+
+  // Définir le texte du bouton
+  btnCloseSucces.textContent = 'Fermer';
+
+  // Ajouter un gestionnaire d'événements au bouton
+  btnCloseSucces.addEventListener('click', function() {
+    closeModal()
+  });
+
+  // Ajouter le bouton à un élément existant dans le DOM
+  const container = document.getElementById('message_successfully'); // Remplacez 'container' par l'ID de l'élément parent où vous voulez ajouter le bouton
+  container.appendChild(btnCloseSucces);
+  }
 
 //Paramètres lors du submit de l'utilisateur
 function validate(event) {
@@ -97,7 +115,7 @@ function validate(event) {
   }
 
   //Vérification si l'email est rentré
-  if (!new RegExp('[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+').test(testEspaceEmail)) {
+  if (!new RegExp('^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$').test(testEspaceEmail)) {
     eltEmail.parentElement.setAttribute('data-error-visible', 'true');
     eltEmail.parentElement.setAttribute('data-error', 'Veuillez entrer un email valide.')
     verifications = false;
@@ -197,54 +215,3 @@ function validate(event) {
 
 // Ferme la modal au clique en appelant ma fonction closeModal
 document.querySelector('.close').addEventListener('click', closeModal);
-
-
-/* if (error === "") {
-  //affichage
-  //prenom
-  
-  //nom
-
-  //email
-
-  //date naissance
-
-  //Conditions et newsletter
-  let checkbox_values = []
-  for (let input of document.querySelector('.checkbox2-label')) {
-    if (input.type == "checkbox" && input.checked) { checkbox_values.push(input.value) }
-  }
-  Affichage erreur
-console.log()
-}
-else {
-window.alert(error);
-} */
-
-
-
-
-
-// Vérification du contenu entré par l'utilisateur                                                                                                                                                                                      
-	/* document.querySelector('.btn-submit').addEventListener( (event) => {
-    validationForm()
-  }) */
-
-/* document.getElementById('').innerHTML = document.getElementById('').value; */
-
-/* function closeModal() {
-  modalbg.style.display = "none";
-}
-
-let closeModal = document.getElementsByClassName(".close");
-modalBtn.forEach((closeModal) => closeModal.addEventListener("click", closeModal)); */
-
-
-//Conditions et newsletter
-  /* let checkbox_values = []
-    for (let input of document.querySelector('.checkbox2-label')) {
-      if (input.type == "checkbox" && input.checked) { checkbox_values.push(input.value) }
-    } */
-
-
-/* ^[a-zA-ZÀ-ÿ\u00C0-\u00FF\u0100-\u017F\u0180-\u024F\u1E00-\u1EFF-]{2,}$ */
